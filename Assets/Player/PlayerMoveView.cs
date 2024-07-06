@@ -5,7 +5,7 @@ using UnityEngine;
 
 #endregion
 
-namespace MVP_C
+namespace Player
 {
     public class PlayerMoveView
     {
