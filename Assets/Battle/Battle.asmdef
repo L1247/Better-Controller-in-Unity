@@ -1,8 +1,8 @@
 {
-  "name": "MVP+C",
+  "name": "Battle",
   "rootNamespace": "",
   "references": [
-    "Unity.TextMeshPro"
+    "Player"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
