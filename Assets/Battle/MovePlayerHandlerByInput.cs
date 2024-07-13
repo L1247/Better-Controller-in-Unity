@@ -14,6 +14,8 @@ namespace Battle
         private readonly InputState       inputState;
         private readonly PlayerController playerController;
 
+        private BattleState battleState;
+
     #endregion
 
     #region Constructor
@@ -30,6 +32,7 @@ namespace Battle
 
         public void Update()
         {
+            if (battleState.IsGamePausing) return;
             var horizontal = inputState.Horizontal;
             var vertical   = inputState.Vertical;
 
