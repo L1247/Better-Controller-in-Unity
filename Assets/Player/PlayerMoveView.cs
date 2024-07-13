@@ -7,19 +7,20 @@ using UnityEngine;
 
 namespace Player
 {
-    public class PlayerMoveView
+    public class PlayerMoveView : MonoBehaviour
     {
     #region Private Variables
 
+        [SerializeField]
         private TMP_Text positionText;
 
     #endregion
 
     #region Unity events
 
-        public void Update(Vector2 movement)
+        public void UpdatePosition(Vector2 position)
         {
-            positionText.text = movement.ToString();
+            positionText.text = position.ToString();
         }
 
     #endregion

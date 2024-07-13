@@ -10,8 +10,8 @@ namespace Player
     {
     #region Private Variables
 
-        private PlayerMover    mover;
-        private PlayerMoveView moveView;
+        public PlayerMover    mover ;
+        public PlayerMoveView moveView;
 
     #endregion
 
@@ -24,9 +24,9 @@ namespace Player
 
             if (horizontal == 0 && vertical == 0) return;
 
-            var movement = new Vector2(horizontal , vertical);
+            var movement = new Vector2(horizontal , vertical) * Time.deltaTime;
             mover.Move(movement);
-            moveView.Update(movement);
+            moveView.UpdatePosition(mover.Position);
         }
 
     #endregion
