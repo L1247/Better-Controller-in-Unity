@@ -12,8 +12,8 @@ namespace Battle
     {
     #region Private Variables
 
-        private MovePlayerHandlerByInput     movePlayerHandlerByInput;
-        private ProcessInputHandler_Keyboard processInputHandlerKeyboard;
+        private MovePlayerHandlerByInput movePlayerHandlerByInput;
+        private ProcessInputHandler      processInputHandler;
 
         [SerializeField]
         private TMP_Text positionText;
@@ -31,13 +31,14 @@ namespace Battle
             var playerMoveView   = new PlayerMoveView(positionText);
             var playerMover      = new PlayerMover(3 , playerTransform);
             var playerController = new PlayerController(playerMover , playerMoveView);
-            processInputHandlerKeyboard = new ProcessInputHandler_Keyboard(inputState);
-            movePlayerHandlerByInput    = new MovePlayerHandlerByInput(inputState , playerController);
+            // processInputHandler = new ProcessInputHandler_Controller(inputState);
+            processInputHandler      = new ProcessInputHandler_Keyboard(inputState);
+            movePlayerHandlerByInput = new MovePlayerHandlerByInput(inputState , playerController);
         }
 
         private void Update()
         {
-            processInputHandlerKeyboard.Update();
+            processInputHandler.ProcessInput();
             movePlayerHandlerByInput.Update();
         }
 
