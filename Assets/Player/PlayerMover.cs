@@ -6,16 +6,30 @@ using UnityEngine;
 
 namespace Player
 {
-    public class PlayerMover : MonoBehaviour
+    public class PlayerMover
     {
+    #region Public Variables
+
+        public Vector2 Position => transform.position;
+
+    #endregion
+
     #region Private Variables
 
-        public  Vector2   Position => transform.position;
+        private readonly float moveSpeed;
 
-        [SerializeField]
-        private float moveSpeed = 3f;
+        private readonly Transform transform;
 
-        
+    #endregion
+
+    #region Constructor
+
+        public PlayerMover(float moveSpeed , Transform transform)
+        {
+            this.moveSpeed = moveSpeed;
+            this.transform = transform;
+        }
+
     #endregion
 
     #region Public Methods

@@ -6,25 +6,29 @@ using UnityEngine;
 
 namespace Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController
     {
     #region Private Variables
 
-        public PlayerMover    mover ;
-        public PlayerMoveView moveView;
+        private readonly PlayerMover    mover;
+        private readonly PlayerMoveView moveView;
 
     #endregion
 
-    #region Unity events
+    #region Constructor
 
-        private void Update()
+        public PlayerController(PlayerMover mover , PlayerMoveView moveView)
         {
-            var horizontal = Input.GetAxis("Horizontal");
-            var vertical   = Input.GetAxis("Vertical");
+            this.mover    = mover;
+            this.moveView = moveView;
+        }
 
-            if (horizontal == 0 && vertical == 0) return;
+    #endregion
 
-            var movement = new Vector2(horizontal , vertical) * Time.deltaTime;
+    #region Public Methods
+
+        public void MovePlayerCharacter(Vector2 movement)
+        {
             mover.Move(movement);
             moveView.UpdatePosition(mover.Position);
         }

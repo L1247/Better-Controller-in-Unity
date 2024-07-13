@@ -2,7 +2,8 @@
   "name": "Battle",
   "rootNamespace": "",
   "references": [
-    "Player"
+      "Player",
+      "Unity.TextMeshPro"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
