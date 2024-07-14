@@ -19,7 +19,7 @@ namespace Battle
         private TMP_Text positionText;
 
         [SerializeField]
-        private Transform playerTransform;
+        private GameObject playerPrefab;
 
     #endregion
 
@@ -29,8 +29,9 @@ namespace Battle
         {
             var inputState       = new InputState();
             var playerMoveView   = new PlayerMoveView(positionText);
-            var playerMover      = new PlayerMover(3 , playerTransform);
-            var playerController = new PlayerController(playerMover , playerMoveView);
+            var playerController = new PlayerController(playerMoveView , playerPrefab);
+            playerController.CreatePlayer(new Vector2(3 , -1) , 3f);
+            // playerController.CreatePlayer(new Vector2(3 , -1) , 3f);
             // processInputHandler = new ProcessInputHandler_Controller(inputState);
             processInputHandler      = new ProcessInputHandler_Keyboard(inputState);
             movePlayerHandlerByInput = new MovePlayerHandlerByInput(inputState , playerController);

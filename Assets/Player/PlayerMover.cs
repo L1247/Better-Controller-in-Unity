@@ -26,8 +26,8 @@ namespace Player
 
         public PlayerMover(float moveSpeed , Transform transform)
         {
-            this.moveSpeed = moveSpeed;
             this.transform = transform;
+            this.moveSpeed = moveSpeed;
         }
 
     #endregion
